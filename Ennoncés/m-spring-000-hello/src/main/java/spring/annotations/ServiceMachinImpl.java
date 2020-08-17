@@ -1,17 +1,15 @@
 package spring.annotations;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("serviceMachin")
 public class ServiceMachinImpl implements ServiceMachin {
 
-	@Autowired
 	private SousServiceTruc m_serviceTruc;
 	private String m_monParametre = "default value";
 
-	private ServiceMachinImpl() {
-		System.out.println("ServiceMachin : on me construit!");
+	public ServiceMachinImpl(SousServiceTruc m_serviceTruc) {
+		this.m_serviceTruc = m_serviceTruc;
 	}
 
 	@Override

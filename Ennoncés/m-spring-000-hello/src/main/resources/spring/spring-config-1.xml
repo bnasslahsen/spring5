@@ -3,6 +3,6 @@
 		"http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="toto" class="spring.bean.User"/>
+	<bean id="toto" class="spring.bean.User" />
 	<bean id="myAddress" class="spring.bean.Address" />
 </beans>

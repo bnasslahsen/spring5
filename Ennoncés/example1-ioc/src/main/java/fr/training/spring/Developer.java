@@ -1,15 +1,18 @@
 package fr.training.spring;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Developer {
 
-	private Task task;
-	
-	public Developer() {
-		task = new ProgrammingTask();
+	private Task documentingTask;
+
+	public Developer(Task documentingTask) {
+		this.documentingTask = documentingTask;
 	}
-	
+
 	public void doTask() {
-		task.execute();
+		documentingTask.execute();
 	}
 	
 }

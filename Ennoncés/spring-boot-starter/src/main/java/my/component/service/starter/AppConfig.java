@@ -1,4 +1,4 @@
-package my.component.service;
+package my.component.service.starter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
 	@Bean
-	MyHello myHello() {
-		return new MyHelloImpl();
+	StarterHello myHello(){
+		return new StarterHelloImpl();
 	}
 }

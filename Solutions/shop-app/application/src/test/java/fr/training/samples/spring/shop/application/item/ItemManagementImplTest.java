@@ -16,6 +16,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -39,6 +40,20 @@ class ItemManagementImplTest {
 		List<ItemEntity> itemEntityList = itemManagement.getAllItems();
 		// Check the result
 		assertTrue(itemEntityList.size() == 1);
+	}
+
+	@Test
+	void getAllItemsWithCache(){
+		ItemEntity itemEntity = new ItemEntity(new ItemVO("mock item description", 100));
+		List<ItemEntity> itemEntitiesMock = new ArrayList<>();
+		Mockito.when(itemRepository.getAllItems()).thenReturn(itemEntitiesMock);
+
+		itemManagement.getAllItems();
+		verify(itemRepository).getAllItems();
+
+		// Test with cache
+		itemManagement.getAllItems();
+		verify(itemRepository).getAllItems();
 	}
 
 	@Test

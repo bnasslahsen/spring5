@@ -5,6 +5,8 @@ import java.util.List;
 import fr.training.samples.spring.shop.domain.item.ItemEntity;
 import fr.training.samples.spring.shop.domain.item.ItemRepository;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +21,13 @@ public class ItemManagementImpl implements ItemManagement {
 	}
 
 	@Override
+	@CacheEvict(value = "itemCache", allEntries = true)
 	public ItemEntity addItem(ItemEntity itemEntity) {
 		return itemRepository.addItem(itemEntity);
 	}
 
 	@Override
+	@Cacheable("itemCache")
 	public List<ItemEntity> getAllItems() {
 		return itemRepository.getAllItems();
 	}

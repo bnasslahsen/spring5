@@ -24,7 +24,7 @@ public class InfoController {
     	return infoRepository.findAll();
     }
 
-	@GetMapping("/{idInfo}")
+	@GetMapping(value = "/{idInfo}")
 	public Info findOneRepo(@PathVariable Long idInfo) {
 		return infoRepository.findById(idInfo).orElseThrow(() -> new NotFoundException("id not found: "+ idInfo));
 	}

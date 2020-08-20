@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class RestExceptionHandler {
@@ -15,13 +14,11 @@ public class RestExceptionHandler {
     private static final Logger LOG = LoggerFactory.getLogger(RestExceptionHandler.class);
 
     @ExceptionHandler({ NotFoundException.class })
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ErrorDetail> handleNotFoundException(NotFoundException e) {
         return error(HttpStatus.NOT_FOUND, e);
     }
 
 	@ExceptionHandler({ Exception.class })
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseEntity<ErrorDetail> handleRunTimeException(Exception e) {
 		return error(HttpStatus.INTERNAL_SERVER_ERROR, e);
 	}

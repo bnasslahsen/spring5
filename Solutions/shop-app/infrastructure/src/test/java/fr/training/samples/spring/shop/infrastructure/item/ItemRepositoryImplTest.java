@@ -27,7 +27,7 @@ class ItemRepositoryImplTest {
 	void addItem() {
 		final ItemEntity itemEntity = new ItemEntity(new ItemVO("DESC99", 99));
 		itemRepository.addItem(itemEntity);
-		assertNotNull(itemEntity.getId());
+		assertTrue(itemRepository.getAllItems().size()==6);
 	}
 
 	@Test

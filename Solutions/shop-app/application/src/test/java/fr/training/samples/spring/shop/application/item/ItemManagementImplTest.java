@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class ItemManagementImplTest {
@@ -40,5 +43,12 @@ class ItemManagementImplTest {
 
 	@Test
 	void addItem() {
+		ItemVO itemVO = new ItemVO("DESC99", 99);
+		ItemEntity itemEntity = new ItemEntity(itemVO);
+		when(itemRepository.addItem(itemEntity)).thenReturn(itemEntity);
+
+		ItemEntity itemResultEntity = itemManagement.addItem(itemEntity);
+		assertNotNull(itemResultEntity);
+		assertEquals("DESC99", itemResultEntity.getItemVO().getDescription());
 	}
 }

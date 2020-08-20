@@ -50,7 +50,6 @@ class CustomerManagementImplTest {
 
 	private CustomerEntity initCustomerEntity() {
 		CustomerVO customerVO = new CustomerVO("NAME1", "PASS1");
-		CustomerEntity customerEntity = new CustomerEntity(customerVO);
-		return customerEntity;
+		return new CustomerEntity(customerVO);
 	}
 }

@@ -13,5 +13,5 @@ management:
             include: info, health, configprops, logfile, metrics, env, loggers
 logging:
   level:
-    org.hibernate.SQL: DEBUG
+    #org.hibernate.SQL: DEBUG
     #org.hibernate.type.descriptor.sql.BasicBinder: TRACE

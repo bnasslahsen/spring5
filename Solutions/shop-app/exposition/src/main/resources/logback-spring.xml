@@ -21,11 +21,11 @@
 		tool -->
 	<appender name="logPlainText"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${app-log-dir}/${app-log-file-name}.log</file>
+		<file>app.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>${app-log-dir}/${app-log-file-name}.%d{dd-MM-yyyy}.%i.log.gz
+			<fileNamePattern>app.%d{dd-MM-yyyy}.%i.log.gz
 			</fileNamePattern>
 			<maxFileSize>100MB</maxFileSize>
 			<maxHistory>60</maxHistory>

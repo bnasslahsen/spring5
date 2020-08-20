@@ -3,11 +3,10 @@ spring:
     name: '@project.name@'
   profiles:
     active: '@spring.profiles.active@'
-  jta:
-    enabled: false
   jpa:
-    hibernate:
-      ddl-auto: create-drop
+    open-in-view: false
+    #hibernate:
+      #ddl-auto: create-drop
   cache:
     jcache:
       config: classpath:cache/ehcache.xml

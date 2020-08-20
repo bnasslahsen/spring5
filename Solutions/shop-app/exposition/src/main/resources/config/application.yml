@@ -5,6 +5,9 @@ spring:
     active: '@spring.profiles.active@'
   jpa:
     open-in-view: false
+  main:
+    lazy-initialization: true
+
     #hibernate:
       #ddl-auto: create-drop
   cache:

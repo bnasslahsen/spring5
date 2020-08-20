@@ -60,17 +60,5 @@
 				<spring.profiles.active>dev</spring.profiles.active>
 			</properties>
 		</profile>
-		<profile>
-			<id>qual</id>
-			<properties>
-				<spring.profiles.active>qual</spring.profiles.active>
-			</properties>
-		</profile>
-		<profile>
-			<id>release</id>
-			<properties>
-				<spring.profiles.active>prod</spring.profiles.active>
-			</properties>
-		</profile>
 	</profiles>
 </project>

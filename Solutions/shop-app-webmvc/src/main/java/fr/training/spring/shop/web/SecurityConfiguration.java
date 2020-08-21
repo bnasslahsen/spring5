@@ -23,9 +23,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(final HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/webjars/**").permitAll();
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/WebMvcConfigurerAdapter/**").hasRole("ADMIN").antMatchers("/anonymous*")
-				.anonymous().antMatchers("/login*").permitAll().anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").defaultSuccessUrl("/", true)
+				.antMatchers("/WebMvcConfigurerAdapter/**").hasRole("ADMIN")
+				.antMatchers("/anonymous*").anonymous()
+				.antMatchers("/login*").permitAll()
+				.anyRequest().authenticated()
+				.and().formLogin().loginPage("/login").defaultSuccessUrl("/", true)
 				.failureUrl("/login?error=true").and().logout().logoutUrl("/logout").logoutSuccessUrl("/login");
 	}
 

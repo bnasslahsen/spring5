@@ -5,11 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import fr.training.spring.shop.web.dto.ItemDTO;
+import fr.training.spring.shop.web.dto.OrderLightDTO;
+import fr.training.spring.shop.web.exception.TechnicalException;
+import fr.training.spring.shop.web.model.OrderModel;
 import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
@@ -22,13 +25,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import fr.training.spring.shop.web.dto.ItemDTO;
-import fr.training.spring.shop.web.dto.OrderLightDTO;
-import fr.training.spring.shop.web.exception.TechnicalException;
-import fr.training.spring.shop.web.model.OrderModel;
-
 @Controller
-@Secured({ "ROLE_NORMAL_USER", "ROLE_ADMIN" })
 public class OrderController {
 
 	@Autowired

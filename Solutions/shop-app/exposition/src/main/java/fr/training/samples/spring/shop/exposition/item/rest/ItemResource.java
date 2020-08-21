@@ -5,6 +5,7 @@ import java.util.List;
 
 import fr.training.samples.spring.shop.application.item.ItemManagement;
 import fr.training.samples.spring.shop.domain.item.ItemEntity;
+import io.micrometer.core.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +36,7 @@ public class ItemResource {
 	}
 
 	@GetMapping("/items")
+	@Timed("itemResource.showItems")
 	public List<ItemDTO> showItems() {
 		final List<ItemEntity> itemEntities = itemManagement.getAllItems();
 		LOG.info("Number of items returned: {}", itemEntities.size());
@@ -43,6 +45,7 @@ public class ItemResource {
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping("/items")
+	@Timed("itemResource.addItem")
 	public ResponseEntity<URI> addItem(@RequestBody final ItemLightDTO itemDTO) {
 		final ItemEntity itemEntity = itemMapper.mapToEntity(itemDTO);
 		itemManagement.addItem(itemEntity);
